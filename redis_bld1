@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+source /vagrant/redis_vars.sh
+
+# build 
+redisrm -rf $REDIS_BUILD_DIR
+pushd $REDIS_BUILD_DIR
+makesudo make installcp src/redis-trib.rb /usr/local/bin/redis-trib.rbcp ./redis.conf /etc/redis.conf
+popd
